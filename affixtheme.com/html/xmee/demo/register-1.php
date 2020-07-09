@@ -81,40 +81,34 @@ ob_start();
                                     </div>
                                 </div>
                                 <script>
-//        function verifyinscription(){
-//   var fn,ln,email,num,ag;
-//   fn=document.getElementById("firstname").value;
-//   ln=document.getElementById("lastname").value;
-//   email=document.getElementById("email").value;
-//   num=document.getElementById("number").value;
-//   ag=document.getElementById("nomagence").value;
+/function verifyinscription(){
+  var fn,ln,email,num,ag;
+  fn=document.getElementById("firstname").value;
+  ln=document.getElementById("lastname").value;
+  email=document.getElementById("email").value;
+  num=document.getElementById("number").value;
+  ag=document.getElementById("nomagence").value;
 
-//   var regex = /^[a-zA-Z0-9.-]+@[a-z0-9.-]{2,7}.[a-z]{2,4}$/;
-//   var regexname = /^[a-zA-Z]{3,16}$/;
-//   var regexag = /^[a-zA-Z0-9._-]$/;
-//   var regexnum = /^(05|06|07){1}[0-9]{8}/;
+  var regex = /^[a-zA-Z0-9.-]+@[a-z0-9.-]{2,7}.[a-z]{2,4}$/;
+  var regexname = /^[a-zA-Z]{3,16}$/;
+  var regexng = /^[a-zA-Z0-9._-]/;
+  var regexnum = /^(05|06|07){1}[0-9]{8}/;
 
 
+  if(fn == "" || ln == "" || email == "" || num == "" ||  ag == "")
+  {
+    window.alert(" Tous les champs doivent être remplis");
+    return false;
+  } else {
+    if(!regex.test(email) || !regexname.test(fn) || !regexname.test(ln) ||  !regexng.test(ag) ||  !regexnum.test(num) ) {
+      window.alert(" Respectez les formats des elements entrés ");
+      return false;
+    } else  {
+      window.confirm("Message bien reçu à votre email");
+      return true ;
+    }
+  }
 
-//   if(fn =="" || ln =="" || email =="" || num =="" ||  ag =="")
-//   {
-//     window.alert(" Tous les champs doivent être remplis");
-//     return false;
-//   }
-//    else
-// { 
-//     if(!regex.test(email) || !regexname.test(fn) || !regexname.test(ln) ||  !regexag.test(ag) ||  !regexnum.test(num)) 
-//     {
-//       window.alert(" Respectez les formats des elements entrés ");
-//       return false;
-//     } 
-//     else  
-//     {
-//       window.confirm("Message bien reçu à votre email");
-//       return true ;
-//     }
-//   }
-// }
  </script>             
 
                             </form> 
