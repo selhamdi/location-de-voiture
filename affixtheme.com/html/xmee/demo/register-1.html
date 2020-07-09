@@ -73,14 +73,14 @@
             
                                 <div class="form-group">
                                     <div class="fxt-transformY-50 fxt-transition-delay-4">
-                                        <button  onclick="verifyinscription()" name="submit" type="submit" class="fxt-btn-fill">Register</button>
+                                        <button  onclick="verifyinscription()" name="submit"  class="fxt-btn-fill">Register</button>
                                     </div>
                                 </div>
                               
                                                               
 <script>
-    function verifyinscription(){
-       var fn,ln,email,num,ag;
+     function verifyinscription(){
+       var fn,ln,email,num,ag ;
        fn=document.getElementById("firstname").value;
        ln=document.getElementById("lastname").value;
        Email=document.getElementById("email").value;
@@ -152,7 +152,7 @@
 <!-- Mirrored from affixtheme.com/html/xmee/demo/register-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 04 Jul 2020 09:25:03 GMT -->
 </html>
 <?php 
-if(isset($_POST["submit"])){
+<!-- if(isset($_POST["submit"])){
 $to ="salimaeii1997@gmail.com"; // this is your Email address
 $from = $_POST["email"]; // this is the sender's Email address
 $name=$_REQUEST["firstname"];
@@ -162,5 +162,5 @@ $headers = "From:" . $from;
                             // mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
                             echo "Mail Sent. Thank you ". $name . ", we will contact you shortly.";
                             // You can also use header('Location: thank_you.php'); to redirect to another page.
-                            }
+                            } -->
 ?>

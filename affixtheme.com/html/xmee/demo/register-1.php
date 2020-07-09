@@ -33,44 +33,7 @@ ob_start();
     <![endif]-->       
     <section class="fxt-template-animation fxt-template-layout1">
         <div class="container-fluid">
-        <?php 
-		// if(isset($_POST['submit'])) {
-			
-		// 	$mail = new PHPMailer;
-
-		// 	// $mail->SMTPDebug = 4;                               // Enable verbose debug output
-
-		// 	$mail->isSMTP();                                      // Set mailer to use SMTP
-		// 	$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-		// 	$mail->SMTPAuth = true;                               // Enable SMTP authentication
-		// 	$mail->Username = EMAIL;                 // SMTP username
-		// 	$mail->Password = PASS;                           // SMTP password
-		// 	$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-		// 	$mail->Port = 587;                                    // TCP port to connect to
-
-		// 	$mail->setFrom(EMAIL, 'Dsmart Tutorials');
-		// 	$mail->addAddress($_POST['email']);     // Add a recipient
-
-		// 	$mail->addReplyTo(EMAIL);
-		// 	// print_r($_FILES['file']); exit;
-		// 	for ($i=0; $i < count($_FILES['file']['tmp_name']) ; $i++) { 
-		// 		$mail->addAttachment($_FILES['file']['tmp_name'][$i], $_FILES['file']['name'][$i]);    // Optional name
-		// 	}
-		// 	$mail->isHTML(true);                                  // Set email format to HTML
-
-		// 	$mail->Subject = $_POST['subject'];
-		// 	$mail->Body    = '<div style="border:2px solid red;">This is the HTML message body <b>in bold!</b></div>';
-		// 	$mail->AltBody = $_POST['message'];
-
-		// 	if(!$mail->send()) {
-		// 	    echo 'Message could not be sent.';
-		// 	    echo 'Mailer Error: ' . $mail->ErrorInfo;
-		// 	} else {
-		// 	    echo 'Message has been sent';
-		// 	}
-		// }
-	 ?>
-            <div class="row">
+               <div class="row">
                 <div class="col-md-6 col-12 fxt-bg-color">
                     <div class="fxt-content">
                         <div class="fxt-header">
@@ -80,7 +43,7 @@ ob_start();
                             <h2>Register</h2>     
                             <p>Create an account free and enjoy it</p>
                             
-                            <form method="POST" action="register-1.php">
+                            <form method="POST" action="" onsubmit="return verifyinscription();">
                                 <div class="form-group">                                                
                                     <div class="fxt-transformY-50 fxt-transition-delay-1">                                                
                                         <input id="firstname" type="text" class="form-control" name="nom" placeholder="Nom" required="required">
@@ -95,13 +58,13 @@ ob_start();
                                 </div>
                                 <div class="form-group">                                                
                                     <div class="fxt-transformY-50 fxt-transition-delay-1">                                                
-                                        <input  id="nomagence" type="name" class="form-control" name="nomagence" placeholder="Nom de l'agence" required="required">
+                                        <input  id="nomagence" type="text" class="form-control" name="nomagence" placeholder="Nom de l'agence" required="required">
                                         <i class="flaticon-user"></i>
                                     </div>
                                 </div>
                                 <div class="form-group">                                                
                                     <div class="fxt-transformY-50 fxt-transition-delay-1">                                                
-                                        <input id="number" type="number" class="form-control" name="number" placeholder="Telephone" required="required">
+                                        <input id="number" type="text" class="form-control" name="number" placeholder="Telephone" required="required">
                                         <i class="fa-phone"></i>
                                     </div>
                                 </div>
@@ -114,63 +77,75 @@ ob_start();
             
                                 <div class="form-group">
                                     <div class="fxt-transformY-50 fxt-transition-delay-4">
-                                        <button  onclick="verifyinscription()" name="submit" type="submit" class="fxt-btn-fill">Register</button>
+                                        <button  name="submit" type="submit" class="fxt-btn-fill">Register</button>
                                     </div>
                                 </div>
-<?php 
-  if(isset($_POST["submit"])){
-    $to ="salimaeii1997@gmail.com"; // this is your Email address
-    $from = $_POST["email"]; // this is the sender's Email address
-    $name=$_POST["firstname"];
-    $headers = "From:" . $from;
-                                $headers2 = "From:" . $to;
-                                // mail($to,$subject,$message,$headers);
-                                // mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
-                                echo "Mail Sent. Thank you ". $name . ", we will contact you shortly.";
-                                // You can also use header('Location: thank_you.php'); to redirect to another page.
-                                }                 
-
-?>
                                 <script>
-         function verifyinscription(){
-            var fn,ln,email,num,ag;
-            fn=document.getElementById("firstname").value;
-            ln=document.getElementById("lastname").value;
-            Email=document.getElementById("email").value;
-            num=document.getElementById("number").value;
-            ng=document.getElementById("nomagence").value;
+//        function verifyinscription(){
+//   var fn,ln,email,num,ag;
+//   fn=document.getElementById("firstname").value;
+//   ln=document.getElementById("lastname").value;
+//   email=document.getElementById("email").value;
+//   num=document.getElementById("number").value;
+//   ag=document.getElementById("nomagence").value;
 
-            var regex = /^[a-zA-Z0-9.-]+@[a-z0-9.-]{2,7}\.[a-z]{2,4}$/;
-            var regexname = /^[a-zA-Z]{3,16}$/;
-            var regexng=/^[a-zA-Z0-9._-]$/;
-            var regexnum=/^ [05|06|07]{1}+[0-9]{8}/;
-         
-        
-        
-             if(fn=="" || ln==""|| Email=="" ||num=="" || ng=="")
-                {
-                    window.alert(" Tous les champs doivent être remplis");
-            
-                }
-               
-            else 
-            {
-               if(!regex.test(Email) || !regexname.test(fn) || !regexname.test(ln) || !regexname.test(ng) || !regexname.test(num) )
-                {   
-                    window.alert(" Respectez les formats des elements entrés ");
-            
-                }
-        
-               else  {
-            window.confirm("Message bien reçu à votre email");
-           }                  
-        }  
-        }
+//   var regex = /^[a-zA-Z0-9.-]+@[a-z0-9.-]{2,7}.[a-z]{2,4}$/;
+//   var regexname = /^[a-zA-Z]{3,16}$/;
+//   var regexag = /^[a-zA-Z0-9._-]$/;
+//   var regexnum = /^(05|06|07){1}[0-9]{8}/;
+
+
+
+//   if(fn =="" || ln =="" || email =="" || num =="" ||  ag =="")
+//   {
+//     window.alert(" Tous les champs doivent être remplis");
+//     return false;
+//   }
+//    else
+// { 
+//     if(!regex.test(email) || !regexname.test(fn) || !regexname.test(ln) ||  !regexag.test(ag) ||  !regexnum.test(num)) 
+//     {
+//       window.alert(" Respectez les formats des elements entrés ");
+//       return false;
+//     } 
+//     else  
+//     {
+//       window.confirm("Message bien reçu à votre email");
+//       return true ;
+//     }
+//   }
+// }
  </script>             
 
                             </form> 
                                                           
-              
+              <?php
+              if(isset($_POST['submit'])){
+
+                if(!empty($_POST["nom"] && $_POST['Prénom'] && $_POST['nomagence'] && $_POST['number'] && $_POST['email'])){
+            
+            
+                    $message="";
+                    $to = $_POST['email']; // this is your Email address
+                    $from = "elhadkimariem3@gmail.com"; // this is the sender's Email address
+                    $nom = $_POST['nom'];
+                    $Prénom= $_POST['Prénom'];
+                    $nomagence= $_POST['nomagence'];
+                    $number= $_POST['number'];
+                    $email= $_POST['email'];
+                    $subject = "Register";
+                    $message = "Bien Recu" ;
+                    $headers = "From:" . $from;
+                    mail($to,$subject,$message,$headers);
+            
+                }
+            
+                else {
+            
+                    $Error="Veuillez remplir tous les champs correct";
+                }
+            }
+              ?>
                         </div> 
                         <div class="fxt-footer">
                             <ul class="fxt-socials">
