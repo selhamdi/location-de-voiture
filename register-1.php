@@ -122,7 +122,7 @@
                     $number= $_POST['number'];
                     $email= $_POST['email'];
                     $subject = "Register";
-                    $message = "Bien Recu" ;
+                    $message = "Bien Reçu Merci $Prénom" ;
                     $headers = "From:" . $from;
                     mail($to,$subject,$message,$headers);
             
