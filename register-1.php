@@ -1,12 +1,10 @@
+
 <!doctype html>
 <html class="no-js" lang="">
-
-
-<!-- Mirrored from affixtheme.com/html/xmee/demo/register-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 04 Jul 2020 09:24:58 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
+    <title>Xmee | Login and Register Form Html Templates</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -17,19 +15,14 @@
     <link rel="stylesheet" href="css/fontawesome-all.min.css">
     <!-- Flaticon CSS -->
     <link rel="stylesheet" href="font/flaticon.css">
-    <!-- Google Web Fonts -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet"> -->
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->       
+<body>      
     <section class="fxt-template-animation fxt-template-layout1">
         <div class="container-fluid">
-           <div class="row">
+               <div class="row">
                 <div class="col-md-6 col-12 fxt-bg-color">
                     <div class="fxt-content">
                         <div class="fxt-header">
@@ -39,7 +32,7 @@
                             <h2>Register</h2>     
                             <p>Create an account free and enjoy it</p>
                             
-                            <form method="POST" action="register-1.php">
+                            <form method="POST" action="" onsubmit="return verifyinscription();">
                                 <div class="form-group">                                                
                                     <div class="fxt-transformY-50 fxt-transition-delay-1">                                                
                                         <input id="firstname" type="text" class="form-control" name="nom" placeholder="Nom" required="required">
@@ -54,13 +47,13 @@
                                 </div>
                                 <div class="form-group">                                                
                                     <div class="fxt-transformY-50 fxt-transition-delay-1">                                                
-                                        <input  id="nomagence" type="name" class="form-control" name="nomagence" placeholder="Nom de l'agence" required="required">
+                                        <input  id="nomagence" type="text" class="form-control" name="nomagence" placeholder="Nom de l'agence" required="required">
                                         <i class="flaticon-user"></i>
                                     </div>
                                 </div>
                                 <div class="form-group">                                                
                                     <div class="fxt-transformY-50 fxt-transition-delay-1">                                                
-                                        <input id="number" type="number" class="form-control" name="number" placeholder="Telephone" required="required">
+                                        <input id="number" type="text" class="form-control" name="number" placeholder="Telephone" required="required">
                                         <i class="fa-phone"></i>
                                     </div>
                                 </div>
@@ -73,48 +66,74 @@
             
                                 <div class="form-group">
                                     <div class="fxt-transformY-50 fxt-transition-delay-4">
-                                        <button  onclick="verifyinscription()" name="submit"  class="fxt-btn-fill">Register</button>
+                                        <button  name="submit" type="submit" class="fxt-btn-fill">Register</button>
                                     </div>
                                 </div>
-                              
-                                                              
+                            </form> 
 <script>
-     function verifyinscription(){
-       var fn,ln,email,num,ag ;
-       fn=document.getElementById("firstname").value;
-       ln=document.getElementById("lastname").value;
-       Email=document.getElementById("email").value;
-       num=document.getElementById("number").value;
-       ng=document.getElementById("nomagence").value;
+        function verifyinscription()
+        {
+            var fn,ln,email,num,ag;
+            fn=document.getElementById("firstname").value;
+            ln=document.getElementById("lastname").value;
+            email=document.getElementById("email").value;
+            num=document.getElementById("number").value;
+            ag=document.getElementById("nomagence").value;
 
-       var regex = /^[a-zA-Z0-9.-]+@[a-z0-9.-]{2,7}\.[a-z]{2,4}$/;
-       var regexname = /^[a-zA-Z]{3,16}$/;
-       var regexng=/^[a-zA-Z0-9._-]$/;
-       var regexnum=/^ [05|06|07]{1}+[0-9]{8}/;
-    
-   
-   
-        if(fn=="" || ln==""|| Email=="" ||num=="" || ng=="")
-           {
-               window.alert(" Tous les champs doivent être remplis");
-       
-           }
-          
-       else 
-       {
-          if(!regex.test(Email) || !regexname.test(fn) || !regexname.test(ln) || !regexname.test(ng) || !regexname.test(num) )
-           {   
-               window.alert(" Respectez les formats des elements entrés ");
-       
-           }
-   
-          else  {
-       window.confirm("Message bien reçu à votre email");
-      }                  
-   }  
-   }
-</script>
-                            </form>                            
+            var regex = /^[a-zA-Z0-9.-]+@[a-z0-9.-]{2,7}.[a-z]{2,4}$/;
+            var regexname = /^[a-zA-Z]{3,16}$/;
+            var regexng = /^[a-zA-Z0-9._-]{3,30}$/;
+            var regexnum = /^(05|06|07){1}[0-9]{8}/;
+
+
+         if(fn == "" || ln == "" || email == "" || num == "" ||  ag == "")
+        {
+            window.alert(" Tous les champs doivent être remplis");
+            return false;
+        }
+        else 
+        {
+            if(!regex.test(email) || !regexname.test(fn) || !regexname.test(ln) ||  !regexng.test(ag) ||  !regexnum.test(num) )
+                {
+                    window.alert(" Respectez les formats des elements entrés ");
+                    return false;
+                }
+                else 
+                {
+                    window.confirm("Message bien reçu à votre email");
+                    return true ;
+                }
+            }     
+        }
+                            </script>
+                                                          
+              <?php
+              if(isset($_POST['submit'])){
+
+                if(!empty($_POST["nom"] && $_POST['Prénom'] && $_POST['nomagence'] && $_POST['number'] && $_POST['email'])){
+            
+            
+                    $message="";
+                    $to = $_POST['email']; // this is your Email address
+                    $from = "elhadkimariem3@gmail.com"; // this is the sender's Email address
+                    $nom = $_POST['nom'];
+                    $Prénom= $_POST['Prénom'];
+                    $nomagence= $_POST['nomagence'];
+                    $number= $_POST['number'];
+                    $email= $_POST['email'];
+                    $subject = "Register";
+                    $message = "Bien Recu" ;
+                    $headers = "From:" . $from;
+                    mail($to,$subject,$message,$headers);
+            
+                }
+            
+                else {
+            
+                    $Error="Veuillez remplir tous les champs correct";
+                }
+            }
+              ?>
                         </div> 
                         <div class="fxt-footer">
                             <ul class="fxt-socials">
@@ -129,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-12 fxt-none-767 fxt-bg-img" data-bg-image="../demo/img/viktor-theo-0hPxXa82y_I-unsplash.jpg"></div>
+                <div class="col-md-6 col-12 fxt-none-767 fxt-bg-img" data-bg-image="../stage/img/viktor-theo-0hPxXa82y_I-unsplash.jpg"></div>
             </div>
         </div>
     </section>
@@ -147,20 +166,7 @@
     <script src="js/main.js"></script>
 
 </body>
-
-
-<!-- Mirrored from affixtheme.com/html/xmee/demo/register-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 04 Jul 2020 09:25:03 GMT -->
 </html>
-<?php 
-<!-- if(isset($_POST["submit"])){
-$to ="salimaeii1997@gmail.com"; // this is your Email address
-$from = $_POST["email"]; // this is the sender's Email address
-$name=$_REQUEST["firstname"];
-$headers = "From:" . $from;
-                            $headers2 = "From:" . $to;
-                            // mail($to,$subject,$message,$headers);
-                            // mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
-                            echo "Mail Sent. Thank you ". $name . ", we will contact you shortly.";
-                            // You can also use header('Location: thank_you.php'); to redirect to another page.
-                            } -->
-?>
+
+
+
