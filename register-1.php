@@ -115,7 +115,7 @@
             
                     $message="";
                     $to = $_POST['email']; // this is your Email address
-                    $from = "elhadkimariem3@gmail.com"; // this is the sender's Email address
+                    $from = "salimaeii1997@gmail.com"; // this is the sender's Email address
                     $nom = $_POST['nom'];
                     $Prénom= $_POST['Prénom'];
                     $nomagence= $_POST['nomagence'];
